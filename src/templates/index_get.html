@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<!--
+	Overflow by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fact Check - COVID-19</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
+	</head>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<h1>COVID-19</h1>
+					<p>Real. Fake.</p>
+				</header>
+				<footer>
+					<a href="#banner" class="button style2 scrolly-middle">START PREDICTING</a>
+				</footer>
+			</section>
+
+		<!-- Banner --> -->
+			<section id="banner">
+				<header>
+					<h2>Is it REAL?</h2>
+				</header>
+				<p>Fret not, COVID-19 Fact Checker tells you whether COVID-19 news is real or not.<br />
+					Now, you can be assured that any information related to COVID-19 will be reliable</p>
+			</section>
+
+		<!-- Predict -->
+			<article class="container box style3">
+				<header>
+					<h2>COVID-19 News Fact Checker</h2>
+				</header>
+				<form action="{{ url_for('index')}}" method="post" enctype = "multipart/form-data">    
+					<div class="row gtr-50">
+						<div class="col-12">
+						<textarea name="text" placeholder="Enter Text"></textarea>
+						</div>
+						<div class="col-6 col-12-mobile">
+							<select name="num_samples" id="num_samples">
+								<option value="">Bayesian Samples</option>
+								<option value="2">2</option>
+								<option value="5">5</option>
+								<option value="10">10</option>
+								<option value="200">200</option>
+								<option value="500">500</option>
+							</select>						
+						</div>				
+						<div class="col-12">
+							<ul class="actions">
+								<li><input type="submit" value="Predict" /></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</article>
+		
+			<!-- <article class="container box style3">
+				<header>
+					<h2>Model Intepretation</h2>
+					<iframe width="1000" height="1000" scrolling="no" style="border:none;" seamless="seamless" src="{{ url_for('static', filename='model_plot.html') }}"></iframe></iframe>					
+				</header>
+			</article> -->
+
+	<!-- Feature 1 -->
+		<article id="Dataset" class="container box style1 right">
+			<a href="#" class="image fit"><img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" /></a>
+			<div class="inner">
+				<header>
+					<h2>The Dataset</h2>
+				</header>
+				<p>
+					<ul>
+						<li>Subset of the <a href="https://github.com/cuilimeng/CoAID">CoAid Dataset</a></li>
+						<li>Diverse COVID-19 healthcare misinformation dataset</li>
+						<li>1,127 real and 266 fake news samples</li>
+					</ul>
+				</p>
+			</div>
+		</article>
+
+	<!-- Feature 2 -->
+		<article id="Preprocessing" class="container box style1 left">
+			<a href="#" class="image fit"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></a>
+			<div class="inner">
+				<header>
+					<h2>Preprocessing</h2>
+				</header>
+				<p>
+					<ul>
+						<li>Text & Content</li>
+						<li>Remove Stopwords, Lemmatize</li>
+						<li>TF-IDF</li>
+						<li>Undersampling</li>																		
+					</ul>
+				</p>
+			</div>
+		</article>
+
+		<!-- Feature 3 -->
+			<article id="Model" class="container box style1 right">
+				<a href="#" class="image fit"><img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>Model</h2>
+					</header>
+					<p>
+						<ul>
+							<li>Bayesian logistic regression</li>
+							<li>Incorporate uncertainty into our estimates</li>
+							<li>Performed using <a href="https://pyro.ai/">Pyro Library</a></li>
+						</ul>	
+					</p>
+				</div>
+			</article>
+
+		<!-- Results -->			
+		<article class="container box style3">
+			<header>
+				<h3>Test Results</h3>
+			</header>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Metric</th>
+							<th>Score</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Accuracy</td>
+							<td>96.81%</td>
+						</tr>
+						<tr>
+							<td>Precision</td>
+							<td>98.04%</td>
+						</tr>
+						<tr>
+							<td>Recall</td>
+							<td>96.15%</td>
+						</tr>
+						<tr>
+							<td>F1</td>
+							<td>97.09%</td>
+						</tr>			
+						<tr>
+							<td>AUC</td>
+							<td>99.13%</td>
+						</tr>
+					</tbody>
+				</table>	
+			</div>
+		</article>		
+
+		<section id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon brands fa-google-plus-g"><span class="label">Google+</span></a></li>
+				<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+				<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+				<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+			</ul>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; Team 4. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Scripts -->
+		"{{url_for ('static', filename='js/main.js') }}"
+			<script src="{{url_for ('static', filename='assets/js/jquery.min.js') }}"></script>
+			<script src="{{url_for ('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{url_for ('static', filename='assets/js/jquery.poptrox.min.js') }}"></script>
+			<script src="{{url_for ('static', filename='assets/js/browser.min.js') }}"></script>
+			<script src="{{url_for ('static', filename='assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{url_for ('static', filename='assets/js/util.js') }}"></script>
+			<script src="{{url_for ('static', filename='assets/js/main.js') }}"></script>
+
+	</body>
+</html>
